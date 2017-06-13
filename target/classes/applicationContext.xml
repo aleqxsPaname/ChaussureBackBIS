@@ -89,21 +89,21 @@
 
 		<property name="daoPhoto" ref="daoPhoto"></property>
 	</bean>
-
+<!-- 
 	<s:http>
 		<s:intercept-url pattern="/" access="ROLE_ADMIN"></s:intercept-url>
 		<s:form-login login-page="/login" default-target-url="/"
 			authentication-failure-url="/login" />
 		<s:logout logout-success-url="/login" />
-		<!-- <s:csrf disabled="true" /> -->
+		 <s:csrf disabled="true" />
 	</s:http>
 	<s:authentication-manager>
 		<s:authentication-provider>
-			<!-- <s:password-encoder hash="md5"></s:password-encoder> <s:jdbc-user-service 
+			 <s:password-encoder hash="md5"></s:password-encoder> <s:jdbc-user-service 
 				data-source-ref="datasource" users-by-username-query="select nom_admin,mdp_admin, 
 				actived from admin where nom_admin=?" authorities-by-username-query="select 
 				a.nom_admin, r.nom_role from admin a, roles r where a.id_admin = r.admin_id 
-				and a.nom_admin =? " /> -->
+				and a.nom_admin =? " /> 
 
 			<s:user-service>
 				<s:user name="admin" password="admin" authorities="ROLE_ADMIN" />
@@ -111,5 +111,6 @@
 			</s:user-service>
 		</s:authentication-provider>
 	</s:authentication-manager>
+	-->
 </beans>
 

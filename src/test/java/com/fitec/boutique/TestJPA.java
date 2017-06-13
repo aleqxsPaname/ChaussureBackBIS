@@ -135,7 +135,7 @@ public class TestJPA {
 		
 		try {
 			
-			// SETTING COMMANDE AVEC LIGNESSSSSSS DE COMMANDE
+			// SETTING COMMANDE & LIGNES DE COMMANDE
 			List<Ligne_de_commande> panier = new ArrayList<Ligne_de_commande>();
 			Ligne_de_commande panier1 = (Ligne_de_commande) new Ligne_de_commande();
 				panier1.setQuantite(3);
@@ -154,17 +154,8 @@ public class TestJPA {
 				
 			// TEST DU SERVICE
 			IServiceCommande serviceCommande = (IServiceCommande) context.getBean("serviceCommande");
-				
 			serviceCommande.saveCommande(commande);
-	       
-	        
-	        // fetch all categorie
-	       // for(Categorie categorie : serviceCategorie.findAllCategories()) {
-	           
-	         //  System.out.println(categorie.getModels());
-	      //  }
-	        
-	        
+	    
 			
 		} catch (Exception e) {
 			Assert.fail();
@@ -172,3 +163,4 @@ public class TestJPA {
 		}
 	}
 }
+

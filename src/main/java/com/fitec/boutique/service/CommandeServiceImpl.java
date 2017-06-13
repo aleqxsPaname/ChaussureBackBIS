@@ -62,19 +62,25 @@ public class CommandeServiceImpl implements IServiceCommande{
 		return comSelected;
 	}
 
+	/*@Override
+	public Commande saveCommande(Commande commande) {
+		
+		return daoCommande.saveCommande(commande);
+	}*/
+	
+	
 	@Override
 	public void saveCommande(Commande commande) {
 		// TODO Auto-generated method stub
 		
 		// Faire find et rattachement pour un client 
-		long idclient = commande.getIdClient();
+		long idclient = 1; // commande.getIdClient();
+		System.out.println("OK SerViCE INItiALISAtioN ");
 		Client client = daoClient.findById(idclient);
+		System.out.println("OK SerViCE APRES DAO REQUEST // CLIENT = " + client.toString());
 		commande.setClient(client);
 		
-	
-		
 		// Faire find et rattachement pour l'article associé à chacune des lignes 
-		
 		List<Ligne_de_commande> listCommande = (List<Ligne_de_commande>) commande.getLigne_de_commandes();
 		for (Ligne_de_commande ligne_de_commande : listCommande) {
 				long idarticle = ligne_de_commande.getIdArticle();
@@ -83,9 +89,9 @@ public class CommandeServiceImpl implements IServiceCommande{
 			//	daoCommande.saveLigneCommande(ligne_de_commande);	
 		}
 		daoCommande.saveCommande(commande);
-		
 	}
 
+	
 	@Override
 	public void updateCommande(Commande commande) {
 		// TODO Auto-generated method stub
@@ -104,5 +110,7 @@ public class CommandeServiceImpl implements IServiceCommande{
 		// TODO Auto-generated method stub
 		return daoCommande.isCommandeExist(commande);
 	}
+
+	
 
 }
